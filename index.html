@@ -24,7 +24,9 @@ class="flex justify-center h-screen items-center">
             Klik Disini Seng
             </button>
     </div>
-  
+<audio id="myAudio" autoplay>
+  <source src="laguku.mp3" type="audio/mpeg">
+</audio>
 <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
 <script>
     confetti({
@@ -50,9 +52,13 @@ function ubahKartu(){
     location.reload();
   }
 </script>
-    <audio controls>
-  <source src="hbdsong.mp3" type="audio/mpeg">
-  Browser kamu tidak mendukung pemutar audio.
-</audio>
+ <script>
+  window.addEventListener('load', function () {
+    const audio = document.getElementById('myAudio');
+    audio.play().catch(function(error) {
+      console.log("Autoplay diblokir oleh browser:", error);
+    });
+  });
+</script>
 </body>
 </html>
