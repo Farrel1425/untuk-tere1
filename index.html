@@ -24,7 +24,7 @@ class="flex justify-center h-screen items-center">
             Klik Disini Seng
             </button>
     </div>
-<audio id="myAudio" autoplay>
+<audio id="myAudio">
   <source src="hbdsong.mp3" type="audio/mpeg">
 </audio>
 <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
@@ -36,6 +36,10 @@ class="flex justify-center h-screen items-center">
 });
 let kartu = document.getElementById("kartu");
 function ubahKartu(){
+    const audio = document.getElementById('myAudio');
+    audio.play().catch(error => {
+        console.log("Autoplay gagal:", error);
+    });
     kartu.innerHTML = ` 
     <h1 class= "font-semibold text-wrap animate__animated animate__zoomIn">       
     Hai seng, aku iseng belajar buat ini, dan Happy Birthday cantik, tapi rencana aku mau buat lebih banyak lagi web untuk kamu <3 ayoyu
@@ -51,14 +55,6 @@ function ubahKartu(){
 }function refresh() {
     location.reload();
   }
-</script>
- <script>
-  window.addEventListener('load', function () {
-    const audio = document.getElementById('myAudio');
-    audio.play().catch(function(error) {
-      console.log("Autoplay diblokir oleh browser:", error);
-    });
-  });
 </script>
 </body>
 </html>
